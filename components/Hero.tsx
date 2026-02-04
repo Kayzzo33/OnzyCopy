@@ -8,12 +8,6 @@ const TypewriterEffect = () => {
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);
-  const [blink, setBlink] = useState(true);
-
-  useEffect(() => {
-    const blinkTimeout = setTimeout(() => setBlink(prev => !prev), 500);
-    return () => clearTimeout(blinkTimeout);
-  }, [blink]);
 
   useEffect(() => {
     if (index >= WORDS.length) {
@@ -40,25 +34,27 @@ const TypewriterEffect = () => {
   }, [subIndex, index, reverse]);
 
   return (
-    <div className="relative inline-flex items-center mx-2 align-middle">
-      {/* Left Bracket */}
-      <div className="flex flex-col items-center justify-between h-[1.1em] text-copy-orange mr-2">
-        <div className="w-1.5 h-1.5 rounded-full bg-copy-orange" />
-        <div className="w-0.5 flex-1 bg-copy-orange my-1" />
-        <div className="w-1.5 h-1.5 rounded-full bg-copy-orange" />
-      </div>
+    <div className="relative inline-flex items-center mx-2 align-bottom pb-1">
+      <div className="relative inline-flex">
+        {/* Selection Background */}
+        <span className="absolute inset-0 bg-copy-orange/20 z-0" />
+        
+        {/* Left Marker Line */}
+        <span className="absolute left-0 top-[-10%] bottom-[-10%] w-[3px] bg-copy-orange rounded-full">
+           {/* Top Dot */}
+          <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-copy-orange rounded-full" />
+        </span>
 
-      {/* Text */}
-      <span className="text-copy-orange font-bold min-w-[3ch] text-center">
-        {WORDS[index].substring(0, subIndex)}
-        <span className={`inline-block w-[3px] h-[0.8em] ml-1 bg-copy-orange align-middle ${blink ? 'opacity-100' : 'opacity-0'}`} />
-      </span>
+        {/* Text */}
+        <span className="relative z-10 px-3 text-copy-orange font-bold min-w-[10px] whitespace-nowrap">
+          {WORDS[index].substring(0, subIndex)}
+        </span>
 
-      {/* Right Bracket */}
-      <div className="flex flex-col items-center justify-between h-[1.1em] text-copy-orange ml-2">
-        <div className="w-1.5 h-1.5 rounded-full bg-copy-orange" />
-        <div className="w-0.5 flex-1 bg-copy-orange my-1" />
-        <div className="w-1.5 h-1.5 rounded-full bg-copy-orange" />
+        {/* Right Marker Line */}
+        <span className="absolute right-0 top-[-10%] bottom-[-10%] w-[3px] bg-copy-orange rounded-full">
+           {/* Bottom Dot */}
+           <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2.5 h-2.5 bg-copy-orange rounded-full" />
+        </span>
       </div>
     </div>
   );
@@ -69,16 +65,6 @@ const Hero: React.FC = () => {
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-10">
       <div className="max-w-6xl mx-auto text-center z-10 space-y-10">
         
-        {/* Brand/Logo Pill - Optional or remove if not in print, keeping for context */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 mb-4"
-        >
-          {/* Logo can go here if needed, keeping clean for now */}
-        </motion.div>
-
         {/* H1 - Formatting adjusted to match the print */}
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
