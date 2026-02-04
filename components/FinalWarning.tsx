@@ -17,14 +17,14 @@ const FinalWarning: React.FC = () => {
         </div>
 
         <div className="space-y-8 mt-4">
-            <h2 className="text-3xl md:text-5xl font-display font-bold">Último recado antes de você entrar</h2>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white">Último recado antes de você entrar</h2>
             
             <div className="space-y-6 text-lg text-gray-300 leading-relaxed font-light">
                 <p>
                     Se você procura <strong className="text-white font-bold">dinheiro fácil</strong> ou fórmulas mágicas para ficar <strong className="text-white font-bold">milionário</strong> do dia para a noite, por favor, <span className="line-through text-red-400/70 decoration-red-500">não entre</span>.
                 </p>
                 <p>
-                    O Copy Pocket é uma ferramenta de potência industrial para quem busca <span className="border-b border-copy-orange text-white">resultados</span> profissionais e está disposto a aplicar estratégias validadas.
+                    O Onzy Copy é uma ferramenta de potência industrial para quem busca <span className="border-b border-copy-orange text-white">resultados</span> profissionais e está disposto a aplicar estratégias validadas.
                 </p>
             </div>
 

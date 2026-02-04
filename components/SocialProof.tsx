@@ -2,18 +2,18 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const testimonials = [
-  { name: "Ana Silva", role: "Marketing Digital", text: "Minhas conversões dobraram depois que parei de usar o ChatGPT puro e mudei pro Copy Pocket.", img: "https://picsum.photos/seed/1/100" },
+  { name: "Ana Silva", role: "Marketing Digital", text: "Minhas conversões dobraram depois que parei de usar o ChatGPT puro e mudei pro Onzy Copy.", img: "https://picsum.photos/seed/1/100" },
   { name: "Carlos Mendes", role: "Ecommerce Owner", text: "A copy de produto gerada foi tão boa que usei sem editar uma vírgula.", img: "https://picsum.photos/seed/2/100" },
   { name: "Julia Santos", role: "Influencer", text: "As legendas dos meus stories nunca tiveram tanto engajamento.", img: "https://picsum.photos/seed/3/100" },
   { name: "Pedro Costa", role: "Copywriter", text: "Uso como base para todos os meus clientes. Acelera meu trabalho em 10x.", img: "https://picsum.photos/seed/4/100" },
-  { name: "Lucas Ferreira", role: "SaaS Founder", text: "A landing page que criamos com o Copy Pocket está convertendo 4.5% a mais.", img: "https://picsum.photos/seed/5/100" },
+  { name: "Lucas Ferreira", role: "SaaS Founder", text: "A landing page que criamos com o Onzy Copy está convertendo 4.5% a mais.", img: "https://picsum.photos/seed/5/100" },
 ];
 
 const SocialProof: React.FC = () => {
   return (
-    <section className="py-24 overflow-hidden relative z-10 bg-black/20 backdrop-blur-sm border-y border-white/5">
+    <section className="py-24 overflow-hidden relative z-10 glass-section">
         <div className="mb-12 text-center px-6">
-            <h2 className="text-3xl md:text-4xl font-display font-bold">O que dizem os membros</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white">O que dizem os membros</h2>
         </div>
 
         <div className="flex w-full overflow-hidden mask-linear-fade">

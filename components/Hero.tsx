@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Zap } from 'lucide-react';
 
-const WORDS = ["páginas", "conteúdos", "legendas", "posts", "stories", "criativos"];
+const WORDS = ["posts", "stories", "legendas", "páginas", "criativos", "emails"];
 
 const TypewriterEffect = () => {
   const [index, setIndex] = useState(0);
@@ -40,49 +40,58 @@ const TypewriterEffect = () => {
   }, [subIndex, index, reverse]);
 
   return (
-    <span className="relative inline-block min-w-[200px] text-left">
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-copy-orange to-orange-300">
+    <div className="relative inline-flex items-center mx-2 align-middle">
+      {/* Left Bracket */}
+      <div className="flex flex-col items-center justify-between h-[1.1em] text-copy-orange mr-2">
+        <div className="w-1.5 h-1.5 rounded-full bg-copy-orange" />
+        <div className="w-0.5 flex-1 bg-copy-orange my-1" />
+        <div className="w-1.5 h-1.5 rounded-full bg-copy-orange" />
+      </div>
+
+      {/* Text */}
+      <span className="text-copy-orange font-bold min-w-[3ch] text-center">
         {WORDS[index].substring(0, subIndex)}
+        <span className={`inline-block w-[3px] h-[0.8em] ml-1 bg-copy-orange align-middle ${blink ? 'opacity-100' : 'opacity-0'}`} />
       </span>
-      <span 
-        className={`absolute -right-1 top-0 bottom-1 w-[4px] bg-copy-orange transition-opacity ${
-          blink ? 'opacity-100' : 'opacity-0'
-        }`}
-      />
-    </span>
+
+      {/* Right Bracket */}
+      <div className="flex flex-col items-center justify-between h-[1.1em] text-copy-orange ml-2">
+        <div className="w-1.5 h-1.5 rounded-full bg-copy-orange" />
+        <div className="w-0.5 flex-1 bg-copy-orange my-1" />
+        <div className="w-1.5 h-1.5 rounded-full bg-copy-orange" />
+      </div>
+    </div>
   );
 };
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20">
-      <div className="max-w-5xl mx-auto text-center z-10 space-y-8">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-10">
+      <div className="max-w-6xl mx-auto text-center z-10 space-y-10">
         
-        {/* Badge */}
+        {/* Brand/Logo Pill - Optional or remove if not in print, keeping for context */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-white/10"
+          className="inline-flex items-center gap-2 mb-4"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-copy-orange opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-copy-orange"></span>
-          </span>
-          <span className="text-xs md:text-sm font-medium text-gray-300 tracking-wide uppercase">
-            A Nova Era do Copywriting
-          </span>
+          {/* Logo can go here if needed, keeping clean for now */}
         </motion.div>
 
-        {/* H1 */}
+        {/* H1 - Formatting adjusted to match the print */}
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] tracking-tight text-white"
+          className="text-5xl md:text-7xl lg:text-8xl font-display font-medium tracking-tight text-white leading-[1.1]"
         >
-          Escreva em segundos copys que convertem 10x mais para <br className="hidden md:block" />
-          <TypewriterEffect />
+          <div className="mb-2">Escreva em segundos</div>
+          <div className="mb-2">copys que convertem 10x</div>
+          <div className="flex flex-wrap items-center justify-center gap-x-4">
+            <span>mais para</span>
+            <TypewriterEffect />
+          </div>
         </motion.h1>
 
         {/* Subtitle */}
@@ -90,10 +99,11 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light"
         >
-          Copy humanizada que foge do padrão de IA e gera resultados reais. 
-          Sem textos robóticos, sem fórmulas batidas.
+          Crie páginas de vendas, criativos e storytelling sem travar,
+          <br className="hidden md:block" />
+          sem improvisar e sem depender de copywriter externo.
         </motion.p>
 
         {/* CTA */}
@@ -101,27 +111,24 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col md:flex-row items-center justify-center gap-6 pt-4"
+          className="flex flex-col items-center justify-center gap-8 pt-8"
         >
-          <button className="group relative px-8 py-4 bg-copy-orange rounded-full text-white font-bold text-lg hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(255,107,53,0.3)] hover:shadow-[0_0_60px_rgba(255,107,53,0.6)] flex items-center gap-3 overflow-hidden">
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            <Zap className="w-5 h-5 fill-current" />
-            <span>Começar Agora</span>
+          <button className="group relative px-10 py-5 bg-gradient-to-r from-copy-orange to-[#FF8F50] rounded-full text-white font-bold text-lg md:text-xl hover:scale-105 transition-all duration-300 shadow-[0_0_50px_rgba(255,107,53,0.4)] hover:shadow-[0_0_80px_rgba(255,107,53,0.6)] flex items-center gap-3 overflow-hidden border border-white/20">
+            <span>Começar agora</span>
+            <Zap className="w-5 h-5 fill-white" />
           </button>
           
-          <div className="flex items-center gap-4">
+          {/* Social Proof below button or near it */}
+          <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
             <div className="flex -space-x-3">
               {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="w-10 h-10 rounded-full border-2 border-copy-dark overflow-hidden bg-gray-800">
-                  <img src={`https://picsum.photos/seed/${i + 50}/100`} alt="User" className="w-full h-full object-cover" />
+                <div key={i} className="w-8 h-8 rounded-full border border-copy-dark overflow-hidden bg-gray-800">
+                  <img src={`https://picsum.photos/seed/${i + 80}/100`} alt="User" className="w-full h-full object-cover" />
                 </div>
               ))}
             </div>
             <div className="text-left">
-              <div className="flex text-yellow-400 text-xs">
-                {'★★★★★'}
-              </div>
-              <p className="text-sm font-semibold text-gray-300">+3.000 Membros Ativos</p>
+               <span className="text-sm font-medium text-gray-300">+3.000 criadores</span>
             </div>
           </div>
         </motion.div>

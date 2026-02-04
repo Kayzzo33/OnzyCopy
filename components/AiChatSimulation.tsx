@@ -51,10 +51,12 @@ const AiChatSimulation: React.FC = () => {
               Sua copy é a <span className="text-copy-orange">principal escolha</span> do seu cliente?
             </h2>
 
-            <p className="text-gray-400 text-lg leading-relaxed">
-              Diga adeus aos textos genéricos que todo mundo percebe que foi feito por robô. 
-              Nossa tecnologia <span className="text-white font-semibold">Human Touch Copy™</span> analisa padrões emocionais reais para criar textos que conectam e vendem.
-            </p>
+            <div className="glass-panel p-6 rounded-2xl">
+              <p className="text-gray-300 text-lg leading-relaxed">
+                Diga adeus aos textos genéricos que todo mundo percebe que foi feito por robô. 
+                Nossa tecnologia <span className="text-white font-semibold">Human Touch Copy™</span> analisa padrões emocionais reais para criar textos que conectam e vendem.
+              </p>
+            </div>
 
             <div className="flex flex-wrap gap-4">
                 <button className="px-8 py-3 bg-white text-copy-dark rounded-full font-bold hover:scale-105 transition-transform">
@@ -69,10 +71,10 @@ const AiChatSimulation: React.FC = () => {
                 <p className="text-sm text-gray-500 mb-4">Confiado por profissionais de:</p>
                 <div className="flex gap-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
                     {/* Placeholder logos */}
-                    <span className="text-lg font-bold">Hotmart</span>
-                    <span className="text-lg font-bold">Kiwify</span>
-                    <span className="text-lg font-bold">Eduzz</span>
-                    <span className="text-lg font-bold">Monetizze</span>
+                    <span className="text-lg font-bold text-white">Hotmart</span>
+                    <span className="text-lg font-bold text-white">Kiwify</span>
+                    <span className="text-lg font-bold text-white">Eduzz</span>
+                    <span className="text-lg font-bold text-white">Monetizze</span>
                 </div>
             </div>
           </motion.div>
@@ -155,7 +157,7 @@ const AiChatSimulation: React.FC = () => {
                                 {/* Result Header */}
                                 <div className="bg-gradient-to-r from-orange-50 to-white p-4 border-b border-orange-100 flex justify-between items-center">
                                     <div className="flex items-center gap-2">
-                                        <span className="font-bold text-gray-800 text-sm">Copy Pocket™</span>
+                                        <span className="font-bold text-gray-800 text-sm">Onzy Copy™</span>
                                         <CheckCircle2 size={14} className="text-blue-500" />
                                     </div>
                                     <div className="flex items-center gap-1 bg-green-100 px-2 py-0.5 rounded-full">
