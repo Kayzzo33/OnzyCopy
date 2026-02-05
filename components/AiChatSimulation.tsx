@@ -16,7 +16,7 @@ const AiChatSimulation: React.FC = () => {
     } else if (phase === 'loading') {
       timer = setTimeout(() => setPhase('result'), 2500);
     } else if (phase === 'result') {
-      timer = setTimeout(() => setPhase('idle'), 8000);
+      timer = setTimeout(() => setPhase('idle'), 12000); // Longer idle to read the result
     } else if (phase === 'idle') {
       timer = setTimeout(() => {
         setKey(prev => prev + 1);
@@ -54,7 +54,7 @@ const AiChatSimulation: React.FC = () => {
             <div className="glass-panel p-6 rounded-2xl">
               <p className="text-gray-300 text-lg leading-relaxed">
                 Diga adeus aos textos genéricos que todo mundo percebe que foi feito por robô. 
-                Nossa tecnologia <span className="text-white font-semibold">Human Touch Copy™</span> analisa padrões emocionais reais para criar textos que conectam e vendem.
+                Nossa tecnologia <span className="text-white font-semibold">Human Touch Copy™</span> analisa padrões emocionais reais para criar textos que conectam e vendem tickets altos.
               </p>
             </div>
 
@@ -65,17 +65,6 @@ const AiChatSimulation: React.FC = () => {
                 <button className="px-8 py-3 glass-panel rounded-full font-bold hover:bg-white/10 transition-colors">
                     Comparar Resultados →
                 </button>
-            </div>
-
-            <div className="pt-8 border-t border-white/10">
-                <p className="text-sm text-gray-500 mb-4">Confiado por profissionais de:</p>
-                <div className="flex gap-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                    {/* Placeholder logos */}
-                    <span className="text-lg font-bold text-white">Hotmart</span>
-                    <span className="text-lg font-bold text-white">Kiwify</span>
-                    <span className="text-lg font-bold text-white">Eduzz</span>
-                    <span className="text-lg font-bold text-white">Monetizze</span>
-                </div>
             </div>
           </motion.div>
 
@@ -113,7 +102,7 @@ const AiChatSimulation: React.FC = () => {
                             className="flex gap-3 items-end self-end max-w-[90%]"
                         >
                             <div className="bg-copy-dark text-white p-3.5 rounded-2xl rounded-tr-sm shadow-lg text-sm">
-                                <p>Preciso de uma copy para vender meu curso de inglês sem parecer "vendedor de curso". Algo natural.</p>
+                                <p>Crie um script de VSL para minha mentoria de agências. Público: donos de agência estagnados nos 20k/mês. Foco: sair do operacional.</p>
                             </div>
                             <div className="w-7 h-7 rounded-full bg-gray-300 flex items-center justify-center shrink-0">
                                 <User size={14} className="text-gray-600" />
@@ -162,21 +151,21 @@ const AiChatSimulation: React.FC = () => {
                                     </div>
                                     <div className="flex items-center gap-1 bg-green-100 px-2 py-0.5 rounded-full">
                                         <Star size={9} className="fill-green-600 text-green-600" />
-                                        <span className="text-[9px] font-bold text-green-700">99.8% Humano</span>
+                                        <span className="text-[9px] font-bold text-green-700">Alta Conversão</span>
                                     </div>
                                 </div>
                                 {/* Result Body */}
                                 <div className="p-4 space-y-3">
                                     <p className="text-gray-700 text-sm leading-relaxed">
-                                        "Sabe quando você tenta aprender inglês há anos, mas trava na hora de falar? A culpa não é sua. O método tradicional foca em regras, nós focamos em conversas..."
+                                        "Você não abriu uma agência para se tornar o funcionário mais caro do mundo. Se você ainda aprova posts, responde clientes no WhatsApp e passa o fim de semana 'apagando incêndio', você não tem um negócio, tem um emprego glorificado..."
                                     </p>
                                     <div className="h-px bg-gray-100 w-full" />
                                     <div className="flex gap-2">
                                         <div className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">Gatilhos:</div>
                                         <div className="flex gap-1 flex-wrap">
-                                            <span className="text-[9px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Empatia</span>
-                                            <span className="text-[9px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Quebra de Objeção</span>
-                                            <span className="text-[9px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Storytelling</span>
+                                            <span className="text-[9px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Dore Aguda</span>
+                                            <span className="text-[9px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Autoridade</span>
+                                            <span className="text-[9px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Contraste</span>
                                         </div>
                                     </div>
                                 </div>

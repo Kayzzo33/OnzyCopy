@@ -5,22 +5,22 @@ import { MousePointer2, FileText, Zap, ArrowRight, Upload } from 'lucide-react';
 const steps = [
   {
     id: 1,
-    title: "Escolha o tipo de copy",
-    description: "Stories, legendas, landing pages, criativos ou storytelling.",
+    title: "Escolha o objetivo",
+    description: "VSL, Carta de Vendas, Sequência de E-mail, Criativos ou Upsell.",
     icon: MousePointer2,
     mockup: "selection"
   },
   {
     id: 2,
-    title: "Descreva seu produto",
-    description: "Conte brevemente sobre o que você vende e qual seu objetivo.",
+    title: "Defina o mecanismo",
+    description: "Insira a promessa única, o público-alvo e o inimigo comum.",
     icon: FileText,
     mockup: "input"
   },
   {
     id: 3,
-    title: "Copy Instantânea",
-    description: "Edite, refine e publique com gatilhos validados.",
+    title: "Copy Validada",
+    description: "Receba variações prontas para teste A/B com ganchos virais.",
     icon: Zap,
     mockup: "result"
   }
@@ -34,7 +34,7 @@ const HowItWorks: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Como funciona</h2>
-            <p className="text-gray-400">Três passos simples para a copy perfeita.</p>
+            <p className="text-gray-400">Três passos para escalar suas vendas.</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -94,9 +94,9 @@ const HowItWorks: React.FC = () => {
                         {/* Mockup Logic */}
                         {activeStep === 1 && (
                             <div className="bg-white/90 backdrop-blur w-[80%] rounded-xl shadow-2xl p-6 text-gray-800">
-                                <h4 className="font-bold mb-4">O que vamos escrever hoje?</h4>
+                                <h4 className="font-bold mb-4">Qual formato você precisa?</h4>
                                 <div className="grid grid-cols-2 gap-3">
-                                    {['Instagram Story', 'Landing Page', 'Email Marketing', 'Anúncio Facebook'].map((item) => (
+                                    {['Video Sales Letter', 'Página de Vendas', 'Sequência de E-mails', 'Anúncio Facebook'].map((item) => (
                                         <div key={item} className="p-3 border rounded-lg hover:border-copy-orange hover:bg-orange-50 cursor-pointer flex items-center gap-2">
                                             <div className="w-2 h-2 rounded-full bg-copy-orange" />
                                             <span className="text-sm font-medium">{item}</span>
@@ -109,18 +109,17 @@ const HowItWorks: React.FC = () => {
                         {activeStep === 2 && (
                              <div className="bg-white/90 backdrop-blur w-[80%] rounded-xl shadow-2xl p-6 text-gray-800 space-y-4">
                                 <div className="space-y-1">
-                                    <label className="text-xs font-bold text-gray-500 uppercase">Nome do Produto</label>
-                                    <div className="h-10 bg-gray-100 rounded-lg w-full" />
+                                    <label className="text-xs font-bold text-gray-500 uppercase">Oferta</label>
+                                    <div className="p-2 bg-gray-100 rounded text-xs text-gray-600">Mentoria High-Ticket para Advogados</div>
                                 </div>
                                 <div className="space-y-1">
-                                    <label className="text-xs font-bold text-gray-500 uppercase">Público Alvo</label>
-                                    <div className="h-10 bg-gray-100 rounded-lg w-full" />
+                                    <label className="text-xs font-bold text-gray-500 uppercase">Objeção Principal</label>
+                                    <div className="p-2 bg-gray-100 rounded text-xs text-gray-600">"Não tenho tempo para criar conteúdo"</div>
                                 </div>
                                 <div className="space-y-1">
-                                    <label className="text-xs font-bold text-gray-500 uppercase">Tom de voz</label>
+                                    <label className="text-xs font-bold text-gray-500 uppercase">Mecanismo Único</label>
                                     <div className="flex gap-2">
-                                        <span className="px-3 py-1 bg-copy-dark text-white rounded-full text-xs">Descontraído</span>
-                                        <span className="px-3 py-1 bg-gray-100 text-gray-500 rounded-full text-xs">Profissional</span>
+                                        <span className="px-3 py-1 bg-copy-dark text-white rounded-full text-xs">Funil Automático</span>
                                     </div>
                                 </div>
                             </div>
@@ -130,18 +129,18 @@ const HowItWorks: React.FC = () => {
                              <div className="bg-white/90 backdrop-blur w-[80%] rounded-xl shadow-2xl overflow-hidden text-gray-800">
                                 <div className="bg-green-50 p-4 border-b border-green-100 flex items-center gap-2">
                                     <Zap className="w-4 h-4 text-green-600 fill-current" />
-                                    <span className="text-xs font-bold text-green-700">Copy Gerada com Sucesso</span>
+                                    <span className="text-xs font-bold text-green-700">Headline Gerada</span>
                                 </div>
                                 <div className="p-6 space-y-3">
                                     <h4 className="font-bold text-sm text-gray-900">
-                                        Método Inglês Fluente em 30 Dias
+                                        Advogado: Como lotar sua agenda sem gravar dancinhas
                                     </h4>
                                     <p className="text-xs leading-relaxed text-gray-600">
-                                        "Você já se sentiu travado na hora de falar inglês, mesmo estudando gramática por anos? A culpa não é sua. Descubra como destravar sua fala com apenas 15 minutos por dia..."
+                                        "A maioria dos advogados acredita que precisa virar 'blogueiro' para atrair clientes qualificados. Mentira. Existe um método silencioso, usado pelos grandes escritórios, que traz contratos de 5 dígitos sem exposição..."
                                     </p>
                                     <div className="flex gap-2 mt-2">
-                                        <span className="bg-orange-100 text-orange-700 px-2 py-0.5 rounded text-[10px] font-bold">AIDA</span>
-                                        <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded text-[10px] font-bold">Storytelling</span>
+                                        <span className="bg-orange-100 text-orange-700 px-2 py-0.5 rounded text-[10px] font-bold">Curiosidade</span>
+                                        <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded text-[10px] font-bold">Inimigo Comum</span>
                                     </div>
                                 </div>
                                 <div className="p-4 border-t bg-gray-50 flex justify-end">

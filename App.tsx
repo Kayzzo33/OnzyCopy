@@ -12,6 +12,9 @@ import FinalWarning from './components/FinalWarning';
 import VideoSalesSection from './components/VideoSalesSection';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import ExpertiseCarousel from './components/ExpertiseCarousel';
+import InfluencerCarousel from './components/InfluencerCarousel';
+import SectionWrapper from './components/SectionWrapper';
 
 const App: React.FC = () => {
   return (
@@ -19,17 +22,8 @@ const App: React.FC = () => {
       
       {/* 
           BACKGROUND LAYER 
-          Positioned as fixed to stay in place while scrolling.
-          z-0 ensures it is at the base level.
       */}
       <div className="fixed inset-0 w-full h-full z-0 bg-black">
-        
-        {/* 
-            VIDEO ELEMENT
-            Using dangerouslySetInnerHTML for robust browser autoplay support.
-            Added 'blur-[3px]' for the requested smooth blur effect.
-            Added 'object-cover' to ensure it fills the screen regardless of aspect ratio.
-        */}
         <div 
             className="absolute inset-0 w-full h-full"
             dangerouslySetInnerHTML={{
@@ -48,10 +42,9 @@ const App: React.FC = () => {
             }}
         />
 
-        {/* Dark Overlay to ensure text readability over the video */}
+        {/* Overlays */}
         <div className="absolute inset-0 bg-black/70 z-10" /> 
         
-        {/* Grid Pattern Overlay */}
         <div 
           className="absolute inset-0 z-20 opacity-20 pointer-events-none"
           style={{
@@ -60,33 +53,68 @@ const App: React.FC = () => {
           }}
         />
 
-        {/* Noise Texture */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 z-20 mix-blend-overlay"></div>
         
-        {/* Vignette for cinematic focus */}
         <div className="absolute inset-0 bg-radial-gradient-vignette z-20 opacity-80 pointer-events-none" style={{ background: 'radial-gradient(circle, transparent 20%, #050505 100%)' }}></div>
       </div>
 
       {/* 
           CONTENT LAYER 
-          Relative + z-10 ensures all content sits ON TOP of the fixed background video.
       */}
       <div className="relative z-10">
         <Navbar />
         
-        {/* Added space-y-32 for significant breathing room between sections */}
-        <main className="space-y-32 pb-32">
+        {/* Increased vertical spacing (space-y-48 = 12rem / ~192px) */}
+        <main className="space-y-48 pb-48">
           <Hero />
-          <AiChatSimulation />
-          <HowItWorks />
-          <UseCases />
-          <WhoIsItFor />
-          <Comparison />
-          <VideoSalesSection />
-          <FeaturesGrid />
-          <FAQ />
-          <SocialProof />
-          <FinalWarning />
+          
+          <SectionWrapper>
+             <AiChatSimulation />
+          </SectionWrapper>
+          
+          <SectionWrapper>
+            <HowItWorks />
+          </SectionWrapper>
+          
+          <SectionWrapper parallaxOffset={-50}>
+            <UseCases />
+          </SectionWrapper>
+          
+          <SectionWrapper>
+             <ExpertiseCarousel />
+          </SectionWrapper>
+
+          <SectionWrapper parallaxOffset={30}>
+            <WhoIsItFor />
+          </SectionWrapper>
+          
+          <SectionWrapper>
+            <InfluencerCarousel />
+          </SectionWrapper>
+
+          <SectionWrapper>
+            <Comparison />
+          </SectionWrapper>
+          
+          <SectionWrapper>
+            <VideoSalesSection />
+          </SectionWrapper>
+          
+          <SectionWrapper>
+             <FeaturesGrid />
+          </SectionWrapper>
+          
+          <SectionWrapper>
+             <FAQ />
+          </SectionWrapper>
+          
+          <SectionWrapper>
+            <SocialProof />
+          </SectionWrapper>
+          
+          <SectionWrapper>
+             <FinalWarning />
+          </SectionWrapper>
         </main>
 
         <Footer />
