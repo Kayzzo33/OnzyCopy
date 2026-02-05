@@ -4,11 +4,11 @@ import { ArrowUpRight, ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    question: "O copy.pocket serve para quem não é copywriter profissional?",
-    answer: "Sim! O copy.pocket foi criado justamente para empreendedores e profissionais de marketing que precisam de copies de alta conversão sem contratar copywriters caros ou ter anos de experiência – nossa IA treinada com milhares de copys vencedoras entrega textos persuasivos em segundos, mesmo se você nunca escreveu copy na vida."
+    question: "O Onzy Copy serve para quem não é copywriter profissional?",
+    answer: "Sim! O Onzy Copy foi criado justamente para empreendedores e profissionais de marketing que precisam de copies de alta conversão sem contratar copywriters caros ou ter anos de experiência – nossa IA treinada com milhares de copys vencedoras entrega textos persuasivos em segundos, mesmo se você nunca escreveu copy na vida."
   },
   {
-    question: "Que tipo de copy eu consigo criar com o copy.pocket?",
+    question: "Que tipo de copy eu consigo criar com o Onzy Copy?",
     answer: "Você pode criar praticamente qualquer tipo de texto para vendas: Legendas para Instagram, Roteiros para Reels/TikTok, E-mails de Vendas, Landing Pages completas, Anúncios (Ads), VSLs (Vídeo Sales Letters) e muito mais."
   },
   {
@@ -20,8 +20,8 @@ const faqs = [
     answer: "Sim, muitas vezes as copys saem prontas para uso. No entanto, recomendamos sempre uma leitura rápida para dar aquele toque final pessoal, caso deseje."
   },
   {
-    question: "O copy.pocket substitui um copywriter humano?",
-    answer: "O copy.pocket atua como um copywriter sênior na sua equipe. Ele acelera a produção em 10x e eleva a qualidade, mas a estratégia final e a decisão de publicação continuam sendo suas. É a ferramenta perfeita para quem não pode pagar R$ 5.000+ em um freelancer."
+    question: "O Onzy Copy substitui um copywriter humano?",
+    answer: "O Onzy Copy atua como um copywriter sênior na sua equipe. Ele acelera a produção em 10x e eleva a qualidade, mas a estratégia final e a decisão de publicação continuam sendo suas. É a ferramenta perfeita para quem não pode pagar R$ 5.000+ em um freelancer."
   }
 ];
 

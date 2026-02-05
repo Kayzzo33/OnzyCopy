@@ -28,11 +28,16 @@ const AiChatSimulation: React.FC = () => {
   }, [phase]);
 
   return (
-    <section className="py-24 bg-gradient-to-b from-transparent to-copy-dark relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-copy-orange/20 rounded-full blur-[120px] pointer-events-none" />
+    <section className="py-24 relative overflow-visible">
+      {/* Background glow - Substituído div com blur por Radial Gradient para evitar o efeito quadrado */}
+      <div 
+        className="absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-40"
+        style={{
+            background: 'radial-gradient(circle, rgba(255,107,53,0.25) 0%, rgba(255,107,53,0) 70%)'
+        }}
+      />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Column */}
@@ -59,7 +64,7 @@ const AiChatSimulation: React.FC = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-                <button className="px-8 py-3 bg-white text-copy-dark rounded-full font-bold hover:scale-105 transition-transform">
+                <button className="shiny-button px-8 py-3 bg-white text-copy-dark rounded-full font-bold">
                     Ver Metodologia
                 </button>
                 <button className="px-8 py-3 glass-panel rounded-full font-bold hover:bg-white/10 transition-colors">
@@ -75,7 +80,10 @@ const AiChatSimulation: React.FC = () => {
              viewport={{ once: true }}
              className="relative"
           >
-            <div className="relative bg-white rounded-[2rem] shadow-2xl overflow-hidden min-h-[450px] border-4 border-gray-100/10">
+            {/* Soft Glow behind the card */}
+            <div className="absolute inset-0 bg-white/5 blur-2xl rounded-[3rem] -z-10"></div>
+
+            <div className="relative bg-white rounded-[2rem] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden min-h-[450px] border border-white/20 ring-1 ring-black/5">
               
               {/* Fake UI Header */}
               <div className="bg-gray-50 px-5 py-3 flex items-center justify-between border-b border-gray-100">
@@ -175,9 +183,6 @@ const AiChatSimulation: React.FC = () => {
                 </AnimatePresence>
               </div>
             </div>
-
-            {/* Decoration Elements */}
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-copy-orange/30 rounded-full blur-[50px] pointer-events-none" />
           </motion.div>
 
         </div>

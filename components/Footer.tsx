@@ -1,67 +1,67 @@
 import React from 'react';
-import { Zap, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Brain, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="relative z-10 glass-section pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+    <footer className="relative z-10 pt-16 pb-12 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 md:gap-24">
             
-            {/* Brand */}
-            <div className="space-y-4">
+            {/* Brand Column */}
+            <div className="space-y-6 max-w-sm">
                 <div className="flex items-center gap-2">
-                    <Zap className="text-copy-orange w-6 h-6" fill="currentColor" />
-                    <span className="text-xl font-display font-bold">
-                        Onzy <span className="text-copy-orange">Copy</span>
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-copy-orange to-orange-700 flex items-center justify-center">
+                        <Brain className="text-white w-5 h-5" fill="currentColor" />
+                    </div>
+                    <span className="text-xl font-display font-bold tracking-tight text-white">
+                        ONZY <br/> COPY <span className="text-[8px] align-top">©</span>
                     </span>
                 </div>
-                <p className="text-gray-400 text-sm">
-                    Revolucionando a maneira como você escreve para a internet. Sem robôs, apenas resultados.
-                </p>
-            </div>
-
-            {/* Links */}
-            <div className="grid grid-cols-2 gap-8">
-                <div>
-                    <h4 className="font-bold mb-4 text-white">Produto</h4>
-                    <ul className="space-y-2 text-sm text-gray-400">
-                        <li className="hover:text-copy-orange cursor-pointer transition-colors">Features</li>
-                        <li className="hover:text-copy-orange cursor-pointer transition-colors">Preços</li>
-                        <li className="hover:text-copy-orange cursor-pointer transition-colors">Showcase</li>
-                    </ul>
+                <div className="text-gray-500 text-xs space-y-2">
+                    <p>ONZY COPY 2025 ©</p>
+                    <p>Todos os direitos reservados.</p>
+                    <p>CNPJ: 55.887.903/0001-28, com sede na Rua Emanuel Kant, Sala 817, Curitiba, Paraná.</p>
                 </div>
-                <div>
-                    <h4 className="font-bold mb-4 text-white">Legal</h4>
-                    <ul className="space-y-2 text-sm text-gray-400">
-                        <li className="hover:text-copy-orange cursor-pointer transition-colors">Termos</li>
-                        <li className="hover:text-copy-orange cursor-pointer transition-colors">Privacidade</li>
-                    </ul>
+                <div className="flex gap-3">
+                    <div className="w-10 h-10 border border-white/20 rounded-lg flex items-center justify-center hover:bg-white/10 cursor-pointer">
+                        <Instagram size={18} className="text-white" />
+                    </div>
+                    <div className="w-10 h-10 border border-white/20 rounded-lg flex items-center justify-center hover:bg-white/10 cursor-pointer">
+                        <Linkedin size={18} className="text-white" />
+                    </div>
                 </div>
             </div>
 
-            {/* Social */}
-            <div>
-                <h4 className="font-bold mb-4 text-white">Social</h4>
-                <div className="flex gap-4">
-                    <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-copy-orange hover:text-white transition-all">
-                        <Instagram size={18} className="text-gray-300" />
-                    </a>
-                    <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-copy-orange hover:text-white transition-all">
-                        <Linkedin size={18} className="text-gray-300" />
-                    </a>
-                    <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-copy-orange hover:text-white transition-all">
-                        <Twitter size={18} className="text-gray-300" />
-                    </a>
+            {/* Links Columns */}
+            <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-8 w-full">
+                <div className="space-y-4">
+                    <h4 className="font-bold text-white text-sm">LINKS</h4>
+                    <ul className="space-y-3 text-sm text-gray-400">
+                        <li className="hover:text-white cursor-pointer transition-colors">Termo de Adesão</li>
+                        <li className="hover:text-white cursor-pointer transition-colors">Política de Privacidade</li>
+                        <li className="hover:text-white cursor-pointer transition-colors">Perguntas Frequentes</li>
+                    </ul>
+                </div>
+                <div className="space-y-4">
+                    <h4 className="font-bold text-white text-sm">ONZY</h4>
+                    <ul className="space-y-3 text-sm text-gray-400">
+                        <li className="hover:text-white cursor-pointer transition-colors">Entrar</li>
+                        <li className="hover:text-white cursor-pointer transition-colors">Método</li>
+                        <li className="hover:text-white cursor-pointer transition-colors">Assinatura</li>
+                        <li className="hover:text-white cursor-pointer transition-colors">Blog</li>
+                    </ul>
+                </div>
+                <div className="space-y-4">
+                    <h4 className="font-bold text-white text-sm">CANAIS</h4>
+                    <ul className="space-y-3 text-sm text-gray-400">
+                        <li className="hover:text-white cursor-pointer transition-colors">Suporte</li>
+                        <li className="hover:text-white cursor-pointer transition-colors">Instagram</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-gray-500">© 2024 Onzy Copy. Todos os direitos reservados.</p>
-            <p className="text-xs text-gray-500 hover:text-copy-orange transition-colors cursor-default">
-                Desenvolvido por jKayzz
-            </p>
-        </div>
+        
+    
       </div>
     </footer>
   );

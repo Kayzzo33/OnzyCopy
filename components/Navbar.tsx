@@ -1,94 +1,93 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Menu, X, Zap } from 'lucide-react';
+import React, { useState } from 'react';
+import { Menu, X, Brain } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollY } = useScroll();
-  
-  const backgroundColor = useTransform(
-    scrollY,
-    [0, 50],
-    ['rgba(5, 5, 5, 0)', 'rgba(5, 5, 5, 0.8)']
-  );
-
-  const backdropBlur = useTransform(
-    scrollY,
-    [0, 50],
-    ['blur(0px)', 'blur(12px)']
-  );
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
-    <motion.nav
-      style={{ backgroundColor, backdropFilter: backdropBlur }}
-      className={`fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300 ${
-        isScrolled ? 'border-white/10' : 'border-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-2 cursor-pointer group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-copy-orange to-orange-700 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-all duration-300">
-            <Zap className="text-white w-6 h-6" fill="currentColor" />
+    <>
+      {/* Desktop Capsule Navbar - Positioned Absolute (Only shows on Hero) */}
+      <div className="absolute top-8 left-0 right-0 z-50 flex justify-center px-4">
+        <nav className="hidden md:flex items-center gap-12 bg-black/60 backdrop-blur-xl border border-white/10 rounded-full px-8 py-4 shadow-2xl">
+          
+          {/* Logo */}
+          <div className="flex items-center gap-2 cursor-pointer group">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-copy-orange to-orange-700 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-all duration-300">
+              <Brain className="text-white w-5 h-5" fill="currentColor" />
+            </div>
+            <span className="text-lg font-display font-bold tracking-tight text-white">
+              Onzy <span className="text-copy-orange">Copy</span>
+            </span>
           </div>
-          <span className="text-xl font-display font-bold tracking-tight">
-            Onzy <span className="text-copy-orange">Copy</span>
-          </span>
-        </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
-            Funcionalidades
-          </a>
-          <a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
-            Como Funciona
-          </a>
-          <div className="flex items-center gap-4">
-            <button className="text-white hover:text-copy-orange transition-colors text-sm font-medium border border-white/20 rounded-full px-5 py-2">
+          {/* Links */}
+          <div className="flex items-center gap-8">
+            <a href="#features" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+              Funcionalidades
+            </a>
+            <a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+              Como Funciona
+            </a>
+          </div>
+
+          {/* Actions */}
+          <div className="flex items-center gap-4 border-l border-white/10 pl-8">
+            <button className="text-white hover:text-copy-orange transition-colors text-sm font-bold uppercase tracking-wider">
               Entrar
             </button>
-            <button className="bg-white text-black px-6 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,107,53,0.5)]">
-              Começar Agora
+            <button className="shiny-button bg-white text-black px-6 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+              COMEÇAR AGORA
             </button>
           </div>
-        </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
+        </nav>
+
+        {/* Mobile Nav Header */}
+        <div className="md:hidden w-full flex justify-between items-center bg-black/60 backdrop-blur-md rounded-full px-6 py-3 border border-white/10">
+           <div className="flex items-center gap-2">
+             <div className="w-8 h-8 rounded-lg bg-copy-orange flex items-center justify-center">
+                <Brain className="text-white w-5 h-5" fill="currentColor" />
+             </div>
+             <span className="font-bold text-white">OnzyCopy</span>
+           </div>
+           <button onClick={() => setIsMobileMenuOpen(true)} className="text-white">
+             <Menu />
+           </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden absolute top-20 left-0 right-0 bg-copy-dark/95 border-b border-white/10 p-6 flex flex-col gap-4 backdrop-blur-xl"
-        >
-          <a href="#features" className="text-gray-300 py-2">Funcionalidades</a>
-          <a href="#how-it-works" className="text-gray-300 py-2">Como Funciona</a>
-          <div className="h-px bg-white/10 my-2" />
-          <button className="text-left text-white py-2">Entrar</button>
-          <button className="bg-copy-orange text-white w-full py-3 rounded-xl font-bold">
-            Começar Agora
-          </button>
-        </motion.div>
-      )}
-    </motion.nav>
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl flex flex-col p-6"
+          >
+            <div className="flex justify-between items-center mb-8">
+              <div className="flex items-center gap-2">
+                 <Brain className="text-copy-orange" />
+                 <span className="font-bold text-xl text-white">Menu</span>
+              </div>
+              <button onClick={() => setIsMobileMenuOpen(false)} className="text-white p-2 bg-white/10 rounded-full">
+                <X />
+              </button>
+            </div>
+            
+            <div className="flex flex-col gap-6 text-lg font-medium text-center">
+              <a href="#features" onClick={() => setIsMobileMenuOpen(false)} className="text-white py-2">Funcionalidades</a>
+              <a href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="text-white py-2">Como Funciona</a>
+              <a href="#" className="text-copy-orange py-2">Fazer Login</a>
+              <button className="bg-white text-black py-4 rounded-xl font-bold mt-4">
+                Começar Agora
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

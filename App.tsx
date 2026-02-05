@@ -8,13 +8,15 @@ import WhoIsItFor from './components/WhoIsItFor';
 import FeaturesGrid from './components/FeaturesGrid';
 import SocialProof from './components/SocialProof';
 import Comparison from './components/Comparison';
-import FinalWarning from './components/FinalWarning';
 import VideoSalesSection from './components/VideoSalesSection';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import ExpertiseCarousel from './components/ExpertiseCarousel';
 import InfluencerCarousel from './components/InfluencerCarousel';
 import SectionWrapper from './components/SectionWrapper';
+import CouponsSection from './components/CouponsSection';
+import AnnualAccessSection from './components/AnnualAccessSection';
+import QuestionsCTA from './components/QuestionsCTA';
 
 const App: React.FC = () => {
   return (
@@ -65,7 +67,7 @@ const App: React.FC = () => {
         <Navbar />
         
         {/* Increased vertical spacing (space-y-48 = 12rem / ~192px) */}
-        <main className="space-y-48 pb-48">
+        <main className="space-y-32 pb-48">
           <Hero />
           
           <SectionWrapper>
@@ -93,15 +95,23 @@ const App: React.FC = () => {
           </SectionWrapper>
 
           <SectionWrapper>
+             <FeaturesGrid />
+          </SectionWrapper>
+
+          <SectionWrapper>
             <Comparison />
+          </SectionWrapper>
+
+          <SectionWrapper>
+            <CouponsSection />
+          </SectionWrapper>
+
+          <SectionWrapper>
+             <AnnualAccessSection />
           </SectionWrapper>
           
           <SectionWrapper>
             <VideoSalesSection />
-          </SectionWrapper>
-          
-          <SectionWrapper>
-             <FeaturesGrid />
           </SectionWrapper>
           
           <SectionWrapper>
@@ -113,7 +123,7 @@ const App: React.FC = () => {
           </SectionWrapper>
           
           <SectionWrapper>
-             <FinalWarning />
+             <QuestionsCTA />
           </SectionWrapper>
         </main>
 
