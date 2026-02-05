@@ -35,7 +35,7 @@ const CouponsSection: React.FC = () => {
   return (
     <section className="relative w-full overflow-hidden py-32 flex flex-col items-center">
       
-      {/* Background Blobs (Specific to this section as requested) */}
+      {/* Background Blobs */}
       <div className="absolute inset-0 pointer-events-none z-0">
          <div className="absolute top-[30%] left-[20%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[120px] opacity-[0.15] animate-blob"></div>
          <div className="absolute top-[20%] right-[-100px] w-[500px] h-[500px] bg-red-600 rounded-full blur-[120px] opacity-[0.1] animate-blob animation-delay-2000"></div>

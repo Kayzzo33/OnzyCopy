@@ -75,43 +75,52 @@ const UseCases: React.FC = () => {
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 gap-6" onMouseLeave={() => setHoveredIndex(null)}>
-          {cards.map((card, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              onMouseEnter={() => setHoveredIndex(i)}
-              className={`group flex flex-col items-start p-8 md:p-10 rounded-[2rem] border transition-all duration-500
-                ${
-                    // Logic: If something is hovered AND it's NOT this one -> Blur/Dim
-                    hoveredIndex !== null && hoveredIndex !== i 
-                    ? 'blur-[2px] opacity-40 grayscale-[0.5] scale-[0.98] border-white/5 bg-black' 
-                    // Else (This one is hovered OR nothing is hovered) -> Solid/Bright
-                    : 'opacity-100 scale-100 bg-gradient-to-b from-[#3f1606] to-[#080808] border-orange-500/20 hover:border-orange-500/40 shadow-2xl'
-                }
-              `}
-            >
-              <div className="mb-6">
-                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-900/40">
-                    <card.icon className="text-white w-6 h-6" />
-                 </div>
-              </div>
+          {cards.map((card, i) => {
+            // Lógica:
+            // isBlurred: Mouse está na grid (hoveredIndex !== null) E não é este card (hoveredIndex !== i)
+            const isBlurred = hoveredIndex !== null && hoveredIndex !== i;
+            // isHovered: Mouse está EXATAMENTE neste card
+            const isHovered = hoveredIndex === i;
 
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
-                {card.title}
-              </h3>
+            return (
+                <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                onMouseEnter={() => setHoveredIndex(i)}
+                className={`
+                    relative flex flex-col items-start p-8 md:p-10 rounded-[2rem] transition-all duration-500 ease-out border
+                    bg-gradient-to-br from-[#662200] to-[#1a0500] 
+                    ${isBlurred 
+                        ? 'blur-[4px] opacity-40 grayscale-[0.8] scale-[0.98] border-white/5' // Estado: Outro card focado
+                        : isHovered
+                            ? 'scale-[1.02] border-copy-orange shadow-[0_0_60px_rgba(255,107,53,0.3)] z-20' // Estado: Este card focado (SEM TRANSPARÊNCIA, MANTÉM FUNDO LARANJA)
+                            : 'scale-100 border-white/10 z-10' // Estado: Nenhum foco
+                    }
+                `}
+                >
+                <div className="mb-6 relative z-10">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-900/40">
+                        <card.icon className="text-white w-6 h-6" />
+                    </div>
+                </div>
 
-              <p className="text-gray-300 leading-relaxed mb-10 text-sm md:text-base font-light">
-                {card.description}
-              </p>
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4 relative z-10">
+                    {card.title}
+                </h3>
 
-              <button className="shiny-button mt-auto bg-white text-copy-dark px-8 py-3 rounded-full font-bold text-sm shadow-lg shadow-black/20 transition-transform">
-                {card.cta}
-              </button>
-            </motion.div>
-          ))}
+                <p className="text-gray-300 leading-relaxed mb-10 text-sm md:text-base font-light relative z-10">
+                    {card.description}
+                </p>
+
+                <button className="shiny-button mt-auto bg-white text-copy-dark px-8 py-3 rounded-full font-bold text-sm shadow-lg shadow-black/20 transition-transform relative z-10">
+                    {card.cta}
+                </button>
+                </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
