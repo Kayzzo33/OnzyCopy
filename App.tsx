@@ -3,9 +3,14 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AiChatSimulation from './components/AiChatSimulation';
 import HowItWorks from './components/HowItWorks';
+import UseCases from './components/UseCases';
+import WhoIsItFor from './components/WhoIsItFor';
 import FeaturesGrid from './components/FeaturesGrid';
 import SocialProof from './components/SocialProof';
+import Comparison from './components/Comparison';
 import FinalWarning from './components/FinalWarning';
+import VideoSalesSection from './components/VideoSalesSection';
+import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
@@ -25,6 +30,16 @@ const App: React.FC = () => {
       {/* Background Video Layer */}
       <div className="fixed inset-0 z-[-1] overflow-hidden bg-copy-dark">
         <div className="absolute inset-0 bg-copy-dark/60 z-10" /> {/* Overlay */}
+        
+        {/* Grid Pattern Overlay (Added) */}
+        <div 
+          className="absolute inset-0 z-10 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}
+        />
+
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 z-10 mix-blend-overlay"></div>
         {/* Vignette */}
         <div className="absolute inset-0 bg-radial-gradient-vignette z-10 opacity-70 pointer-events-none" style={{ background: 'radial-gradient(circle, transparent 20%, #050505 100%)' }}></div>
@@ -45,11 +60,17 @@ const App: React.FC = () => {
 
       <Navbar />
       
-      <main className="relative z-10">
+      {/* Added space-y-32 for significant breathing room between sections */}
+      <main className="relative z-10 space-y-32 pb-32">
         <Hero />
         <AiChatSimulation />
         <HowItWorks />
+        <UseCases />
+        <WhoIsItFor />
+        <Comparison />
+        <VideoSalesSection />
         <FeaturesGrid />
+        <FAQ />
         <SocialProof />
         <FinalWarning />
       </main>
