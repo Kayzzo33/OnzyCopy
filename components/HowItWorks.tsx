@@ -133,13 +133,21 @@ const HowItWorks: React.FC = () => {
                                     <span className="text-xs font-bold text-green-700">Copy Gerada com Sucesso</span>
                                 </div>
                                 <div className="p-6 space-y-3">
-                                    <div className="h-4 bg-gray-200 rounded w-3/4 animate-pulse" />
-                                    <div className="h-4 bg-gray-200 rounded w-full animate-pulse" />
-                                    <div className="h-4 bg-gray-200 rounded w-5/6 animate-pulse" />
-                                    <div className="h-4 bg-gray-200 rounded w-full animate-pulse" />
+                                    <h4 className="font-bold text-sm text-gray-900">
+                                        Método Inglês Fluente em 30 Dias
+                                    </h4>
+                                    <p className="text-xs leading-relaxed text-gray-600">
+                                        "Você já se sentiu travado na hora de falar inglês, mesmo estudando gramática por anos? A culpa não é sua. Descubra como destravar sua fala com apenas 15 minutos por dia..."
+                                    </p>
+                                    <div className="flex gap-2 mt-2">
+                                        <span className="bg-orange-100 text-orange-700 px-2 py-0.5 rounded text-[10px] font-bold">AIDA</span>
+                                        <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded text-[10px] font-bold">Storytelling</span>
+                                    </div>
                                 </div>
                                 <div className="p-4 border-t bg-gray-50 flex justify-end">
-                                    <button className="px-4 py-2 bg-copy-dark text-white text-xs font-bold rounded-lg">Copiar Texto</button>
+                                    <button className="px-4 py-2 bg-copy-dark text-white text-xs font-bold rounded-lg hover:bg-black transition-colors">
+                                        Copiar Texto
+                                    </button>
                                 </div>
                             </div>
                         )}

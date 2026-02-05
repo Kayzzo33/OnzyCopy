@@ -86,23 +86,23 @@ const AiChatSimulation: React.FC = () => {
              viewport={{ once: true }}
              className="relative"
           >
-            <div className="relative bg-white rounded-[2.5rem] shadow-2xl overflow-hidden min-h-[600px] border-4 border-gray-100/10">
+            <div className="relative bg-white rounded-[2rem] shadow-2xl overflow-hidden min-h-[450px] border-4 border-gray-100/10">
               
               {/* Fake UI Header */}
-              <div className="bg-gray-50 px-6 py-4 flex items-center justify-between border-b border-gray-100">
+              <div className="bg-gray-50 px-5 py-3 flex items-center justify-between border-b border-gray-100">
                 <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
                 </div>
-                <div className="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-600 animate-pulse"></span>
+                <div className="px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-green-600 animate-pulse"></span>
                   engine_active
                 </div>
               </div>
 
               {/* Chat Area */}
-              <div className="p-6 md:p-8 flex flex-col gap-6 bg-gray-50/50 h-full min-h-[540px]">
+              <div className="p-5 flex flex-col gap-5 bg-gray-50/50 h-full min-h-[400px]">
                 <AnimatePresence mode="wait">
                     {/* User Message */}
                     {(phase !== 'idle') && (
@@ -110,13 +110,13 @@ const AiChatSimulation: React.FC = () => {
                             key={`user-${key}`}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="flex gap-4 items-end self-end max-w-[90%]"
+                            className="flex gap-3 items-end self-end max-w-[90%]"
                         >
-                            <div className="bg-copy-dark text-white p-4 rounded-2xl rounded-tr-sm shadow-lg text-sm md:text-base">
+                            <div className="bg-copy-dark text-white p-3.5 rounded-2xl rounded-tr-sm shadow-lg text-sm">
                                 <p>Preciso de uma copy para vender meu curso de inglês sem parecer "vendedor de curso". Algo natural.</p>
                             </div>
-                            <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center shrink-0">
-                                <User size={16} className="text-gray-600" />
+                            <div className="w-7 h-7 rounded-full bg-gray-300 flex items-center justify-center shrink-0">
+                                <User size={14} className="text-gray-600" />
                             </div>
                         </motion.div>
                     )}
@@ -128,15 +128,15 @@ const AiChatSimulation: React.FC = () => {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.8 }}
-                            className="flex gap-4 items-end max-w-[80%]"
+                            className="flex gap-3 items-end max-w-[80%]"
                         >
-                            <div className="w-8 h-8 rounded-full bg-copy-orange flex items-center justify-center shrink-0 shadow-lg shadow-copy-orange/30">
-                                <Sparkles size={16} className="text-white" />
+                            <div className="w-7 h-7 rounded-full bg-copy-orange flex items-center justify-center shrink-0 shadow-lg shadow-copy-orange/30">
+                                <Sparkles size={14} className="text-white" />
                             </div>
-                            <div className="bg-white p-4 rounded-2xl rounded-tl-sm shadow-md flex gap-1">
-                                <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
-                                <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
-                                <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></span>
+                            <div className="bg-white p-3.5 rounded-2xl rounded-tl-sm shadow-md flex gap-1">
+                                <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                                <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                                <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span>
                             </div>
                         </motion.div>
                     )}
@@ -148,35 +148,35 @@ const AiChatSimulation: React.FC = () => {
                             initial={{ opacity: 0, y: 20, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                            className="flex gap-4 items-start max-w-[100%]"
+                            className="flex gap-3 items-start max-w-[100%]"
                         >
-                            <div className="w-8 h-8 rounded-full bg-copy-orange flex items-center justify-center shrink-0 shadow-lg shadow-copy-orange/30 mt-2">
-                                <Sparkles size={16} className="text-white" />
+                            <div className="w-7 h-7 rounded-full bg-copy-orange flex items-center justify-center shrink-0 shadow-lg shadow-copy-orange/30 mt-2">
+                                <Sparkles size={14} className="text-white" />
                             </div>
                             <div className="flex-1 bg-white rounded-2xl rounded-tl-sm shadow-xl border border-orange-100 overflow-hidden">
                                 {/* Result Header */}
-                                <div className="bg-gradient-to-r from-orange-50 to-white p-4 border-b border-orange-100 flex justify-between items-center">
+                                <div className="bg-gradient-to-r from-orange-50 to-white p-3 border-b border-orange-100 flex justify-between items-center">
                                     <div className="flex items-center gap-2">
-                                        <span className="font-bold text-gray-800 text-sm">Onzy Copy™</span>
-                                        <CheckCircle2 size={14} className="text-blue-500" />
+                                        <span className="font-bold text-gray-800 text-xs">Onzy Copy™</span>
+                                        <CheckCircle2 size={12} className="text-blue-500" />
                                     </div>
                                     <div className="flex items-center gap-1 bg-green-100 px-2 py-0.5 rounded-full">
-                                        <Star size={10} className="fill-green-600 text-green-600" />
-                                        <span className="text-[10px] font-bold text-green-700">99.8% Humano</span>
+                                        <Star size={9} className="fill-green-600 text-green-600" />
+                                        <span className="text-[9px] font-bold text-green-700">99.8% Humano</span>
                                     </div>
                                 </div>
                                 {/* Result Body */}
-                                <div className="p-5 space-y-3">
+                                <div className="p-4 space-y-3">
                                     <p className="text-gray-700 text-sm leading-relaxed">
                                         "Sabe quando você tenta aprender inglês há anos, mas trava na hora de falar? A culpa não é sua. O método tradicional foca em regras, nós focamos em conversas..."
                                     </p>
                                     <div className="h-px bg-gray-100 w-full" />
                                     <div className="flex gap-2">
-                                        <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Gatilhos:</div>
+                                        <div className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">Gatilhos:</div>
                                         <div className="flex gap-1 flex-wrap">
-                                            <span className="text-[10px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Empatia</span>
-                                            <span className="text-[10px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Quebra de Objeção</span>
-                                            <span className="text-[10px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Storytelling</span>
+                                            <span className="text-[9px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Empatia</span>
+                                            <span className="text-[9px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Quebra de Objeção</span>
+                                            <span className="text-[9px] px-2 py-0.5 bg-gray-100 rounded text-gray-600">Storytelling</span>
                                         </div>
                                     </div>
                                 </div>

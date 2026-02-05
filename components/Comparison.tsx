@@ -34,7 +34,7 @@ const Comparison: React.FC = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="hidden md:flex flex-col bg-white/5 border border-white/10 rounded-[2rem] p-8"
+                className="hidden md:flex flex-col bg-white/5 border border-white/10 rounded-[2rem] p-8 backdrop-blur-xl"
             >
                 <div className="h-16 flex items-center font-bold text-white text-lg border-b border-white/10 mb-2">
                     Funcionalidade
@@ -52,17 +52,14 @@ const Comparison: React.FC = () => {
                 whileInView={{ y: 0, opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-                className="flex flex-col relative bg-gradient-to-b from-copy-orange/80 to-orange-900/80 border border-orange-400/50 rounded-[2rem] p-8 shadow-[0_0_50px_rgba(255,107,53,0.3)] z-10"
+                className="flex flex-col relative bg-gradient-to-b from-copy-orange/90 to-orange-900/90 border border-orange-500/30 rounded-[2rem] p-8 shadow-[0_0_50px_rgba(255,107,53,0.3)] z-10 overflow-hidden"
             >
-                {/* Glow Effect */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-white/50" />
-                
-                <div className="h-16 flex items-center gap-2 font-bold text-white text-lg border-b border-white/20 mb-2">
+                <div className="h-16 flex items-center gap-2 font-bold text-white text-lg border-b border-white/20 mb-2 relative z-10">
                     <Zap className="fill-white w-5 h-5" />
                     Onzy Copy
                 </div>
                 {features.map((f, i) => (
-                    <div key={i} className="h-16 flex items-center justify-start md:justify-center border-b border-white/10 last:border-0">
+                    <div key={i} className="h-16 flex items-center justify-start md:justify-center border-b border-white/10 last:border-0 relative z-10">
                          {/* Mobile Label */}
                          <span className="md:hidden text-white/80 text-sm mr-auto">{f.name}</span>
                          
@@ -80,7 +77,7 @@ const Comparison: React.FC = () => {
                 whileHover={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: 0.8, duration: 0.8 }}
-                className="flex flex-col bg-white/5 border border-white/10 rounded-[2rem] p-8 transition-opacity"
+                className="flex flex-col bg-white/5 border border-white/10 rounded-[2rem] p-8 transition-opacity backdrop-blur-xl"
             >
                 <div className="h-16 flex items-center font-bold text-white text-lg border-b border-white/10 mb-2">
                     Outras
@@ -114,7 +111,7 @@ const Comparison: React.FC = () => {
                 whileHover={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: 1, duration: 0.8 }}
-                className="flex flex-col bg-white/5 border border-white/10 rounded-[2rem] p-8 transition-opacity"
+                className="flex flex-col bg-white/5 border border-white/10 rounded-[2rem] p-8 transition-opacity backdrop-blur-xl"
             >
                 <div className="h-16 flex items-center font-bold text-white text-lg border-b border-white/10 mb-2">
                     ChatGPT

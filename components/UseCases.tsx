@@ -44,8 +44,18 @@ const UseCases: React.FC = () => {
     <section className="relative z-10 pt-20 pb-32 overflow-hidden">
       
       {/* Background Video (Brain Animation) */}
-      {/* mix-blend-screen makes the black background transparent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[800px] z-0 pointer-events-none">
+      {/* 
+          mix-blend-screen removes black.
+          contrast-125 / brightness-110 makes the black "blacker" so it disappears better.
+          mask-image fades the edges so we don't see a square video frame.
+      */}
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[800px] z-0 pointer-events-none"
+        style={{
+            maskImage: 'radial-gradient(circle, black 40%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 70%)'
+        }}
+      >
         <div className="w-full h-full relative">
             <video 
                 ref={videoRef}
@@ -53,11 +63,9 @@ const UseCases: React.FC = () => {
                 loop 
                 muted 
                 playsInline
-                className="w-full h-full object-contain mix-blend-screen opacity-80"
+                className="w-full h-full object-contain mix-blend-screen opacity-90 contrast-125 brightness-110"
                 src="https://res.cloudinary.com/ddxo3s8an/video/upload/v1770251913/Anime_somente_o_c_rebro_de_pedra_acima_da_base._Apenas_o_c_rebro_deve_se_mover__realizando_uma_leve__seed1083103812_ld7zru.mp4"
             />
-            {/* Gradient Fade to blend the bottom of the video area into the black background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black" />
         </div>
       </div>
 
